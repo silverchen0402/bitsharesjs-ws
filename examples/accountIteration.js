@@ -5,16 +5,16 @@
 
 /* running 'npm run build' is necessary before launching the examples */
 
-var {Apis} = require("../cjs")
+var {Apis} = require("../lib")
 // let wsString = "wss://bitshares.openledger.info/ws";
-let wsStringLocal = "ws://127.0.0.1:8090";
+let wsStringLocal = "ws://localhost:30201";
 
 let holders = {};
 
 Apis.instance(wsStringLocal, true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
 
-    Apis.instance().db_api().exec("lookup_asset_symbols", [["OBITS"]]).then(assets => {
+    Apis.instance().db_api().exec("lookup_asset_symbols", [["BTS"]]).then(assets => {
         console.log("OBITS id:", assets[0].id)
         let assetID = assets[0].id;
 

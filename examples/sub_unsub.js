@@ -1,7 +1,7 @@
 // Node.js example
 /* running 'npm run build' is necessary before launching the examples */
-var {Apis} = require("../cjs")
-let wsString = "wss://bitshares.openledger.info/ws";
+var {Apis} = require("../lib")
+let wsString = "ws://localhost:30201";
 let wsStringLocal = "ws://127.0.0.1:8090";
 
 Apis.instance(wsString, true).init_promise.then((res) => {
